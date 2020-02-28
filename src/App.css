@@ -1,5 +1,23 @@
+@import "~antd/dist/antd.css";
 .App {
   text-align: center;
+  color: #2ca58d;
+}
+.ant-menu-horizontal {
+  width: 1500px;
+  line-height: 50px;
+  white-space: nowrap;
+  border: 0;
+  border-bottom: 1px solid #e8e8e8;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+button,
+html [type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button;
+  background-color: seagreen;
 }
 
 .App-logo {
