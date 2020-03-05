@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "./App.css";
 import { Modal, Row, Col, Table, message } from "antd";
 import "rsuite/dist/styles/rsuite-default.css";
 import { Button, Form, FormGroup, FormControl, ButtonToolbar } from "rsuite";
@@ -20,7 +19,7 @@ const rowSelection = {
   })
 };
 
-class tareas extends Component {
+class Task extends Component {
   columns = [
     {
       title: "Id",
@@ -59,9 +58,14 @@ class tareas extends Component {
       tasks: [],
       _id: "0"
     };
+
     this.handleChange = this.handleChange.bind(this);
     this.addTask = this.addTask.bind(this);
   }
+  location = {
+    current: "mail"
+  };
+
   addTask = () => {
     if (this.state.title === "" || this.state.description === "") {
       message.success("inserte contenido");
@@ -141,50 +145,17 @@ class tareas extends Component {
     );
     console.log(this.state.tasks.filter(objeto => objeto._id == id)[0]);
   }
+
+  handleClick = e => {
+    console.log("click ", e);
+    this.setState({
+      current: e.key
+    });
+  };
+
   render() {
     return (
       <div>
-        <Menu
-          onClick={this.handleClick}
-          selectedKeys={[this.state.current]}
-          mode="horizontal"
-        >
-          <Menu.Item key="mail">
-            <Icon type="mail" />
-            Navigation One
-          </Menu.Item>
-          <Menu.Item key="app">
-            <Icon type="appstore" />
-            Navigation Two
-          </Menu.Item>
-          <SubMenu
-            title={
-              <span className="submenu-title-wrapper">
-                <Icon type="setting" />
-                Navigation Three - Submenu
-              </span>
-            }
-          >
-            <Menu.ItemGroup title="Item 1">
-              <Menu.Item key="setting:1">Option 1</Menu.Item>
-              <Menu.Item key="setting:2">Option 2</Menu.Item>
-            </Menu.ItemGroup>
-            <Menu.ItemGroup title="Item 2">
-              <Menu.Item key="setting:3">Option 3</Menu.Item>
-              <Menu.Item key="setting:4">Option 4</Menu.Item>
-            </Menu.ItemGroup>
-          </SubMenu>
-          <Menu.Item key="alipay">
-            <a
-              href="https://ant.design"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Navigation Four - Link
-            </a>
-          </Menu.Item>
-        </Menu>
-        <br />
         <Row>
           <Col xs={{ span: 5, offset: 1 }} lg={{ span: 6, offset: 2 }}>
             <Form onSubmit={this.addTask}>
@@ -238,4 +209,4 @@ class tareas extends Component {
   }
 }
 
-export default tareas;
+export default Task;

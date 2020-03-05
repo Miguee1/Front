@@ -1,4 +1,15 @@
 @import "~antd/dist/antd.css";
+.ant-input-affix-wrapper .ant-input:not(:first-child) {
+  width: auto;
+  -webkit-appearance: none;
+}
+input[type="text"],
+input[type="password"],
+input[type="number"],
+textarea {
+  -webkit-appearance: none;
+  width: auto;
+}
 .App {
   text-align: center;
   color: #2ca58d;
